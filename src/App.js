@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import WidgetForm from "./Components/WidgetForm";
 import { useEffect, useState } from "react";
 import WidgetList from "./Components/WidgetList";
-import HeaderShimmer from "./Components/Shimmer/HeaderShimmer";
 import Header from "./Components/Header";
 
 const App = () => {
@@ -20,8 +19,7 @@ const App = () => {
   return (
     <div className=" flex flex-col items-center w-full bg-gray-50">
       <Header />
-      <HeaderShimmer />
-      {
+          {
         data.categories.map(item => (
           <Category key={item.id} itemData={item} />
         ))
