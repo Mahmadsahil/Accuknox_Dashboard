@@ -1,5 +1,7 @@
 # Accuknox_Dashboard
 
+**[Live Demo](https://accuknox-dashboard-nu.vercel.app/)**
+
 An interactive clothing store web application built with React and Redux Toolkit. The app features a category-based product listing with dynamic content display and item management.
 
 ## Table of Contents
