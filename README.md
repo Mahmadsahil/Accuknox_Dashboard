@@ -1,4 +1,4 @@
-# Clothing Store App
+# Accuknox_Dashboard
 
 An interactive clothing store web application built with React and Redux Toolkit. The app features a category-based product listing with dynamic content display and item management.
 
