@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Category from "./Components/Category";
+import { useSelector } from 'react-redux';
+import WidgetForm from "./Components/WidgetForm";
+import { useEffect, useState } from "react";
+import WidgetList from "./Components/WidgetList";
+import HeaderShimmer from "./Components/Shimmer/HeaderShimmer";
+import Header from "./Components/Header";
 
-function App() {
+const App = () => {
+  const { formDisplay, data } = useSelector(state => state.app)
+  const [show, setShow] = useState(false);
+  const ShowWidget = useSelector(state => state.app.widgetsShow);
+
+  useEffect(() => {
+    setShow(formDisplay.show)
+    console.log("CategoryName,Show", formDisplay.CategoryName, formDisplay.show);
+
+  }, [formDisplay, ShowWidget])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" flex flex-col items-center w-full bg-gray-50">
+      <Header />
+      <HeaderShimmer />
+      {
+        data.categories.map(item => (
+          <Category key={item.id} itemData={item} />
+        ))
+      }
+      {/* <WidgetForm /> */}
+      {show && <WidgetForm />}
+      {ShowWidget && <WidgetList />}
+
     </div>
-  );
+  )
 }
 
 export default App;
